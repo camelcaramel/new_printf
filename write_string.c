@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:33 by donghwik          #+#    #+#             */
-/*   Updated: 2021/03/27 17:30:34 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/03/27 23:14:38 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	write_string(const char *s, int len)
 	while (*temp)
 		temp++;
 	if (len != 0)
-		write(1, s, min(len, temp - s - 1));
+		write(1, s, min(len, temp - s));
 	else
-		write(1, s, (temp - s -1));
+		write(1, s, (temp - s));
 }
 
 int     print_string(const char *s, t_info info)
