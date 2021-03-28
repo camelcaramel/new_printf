@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 이거를 프로젝트 폴더로 수정하세요!
-PROJ_PATH=.
+PROJ_PATH=./
 
 # ### 안내:
 # https://github.com/PandaCoustik/Test-42

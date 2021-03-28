@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:22 by donghwik          #+#    #+#             */
-/*   Updated: 2021/03/27 17:30:23 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/03/28 10:41:19 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int     ft_numlen(long long n, int radix)
 {
     long long ret;
 
-    ret = 0;
+    ret = 1;
     if (n < 0)
         n *= -1;
     while (n > 0)
