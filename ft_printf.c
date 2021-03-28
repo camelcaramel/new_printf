@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:55 by donghwik          #+#    #+#             */
-/*   Updated: 2021/03/27 22:33:09 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/03/28 10:32:56 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,12 @@ int     symbol_switch(t_info info, const char **fmt, va_list *ap)
         return (print_char(va_arg(*ap, int), info));
     else if (**fmt == 's')
         return (print_string(va_arg(*ap, char *), info));
+    else
+        while (info.width > 0)
+        {
+            write(1, &" ", 1);
+            info.width--;
+        }
     return (1);
 }
 
@@ -86,6 +92,11 @@ int     format_print(const char **format, va_list *ap)
     }
     temp.flag = flag_proc(format);
     temp.width = width_proc(format, ap);
+    if (temp.width < 0)
+    {
+        temp.flag = 0;
+        temp.width *= -1;
+    }
     temp.precision = preci_proc(format, ap);
     return (symbol_switch(temp, format, ap));
 }
