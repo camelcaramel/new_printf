@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:26 by donghwik          #+#    #+#             */
-/*   Updated: 2021/03/28 10:30:43 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/03/28 12:04:11 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,13 @@ int     width_proc(const char **format, va_list *ap)
     return (ret); 
 }
 
-int     preci_proc(const char **format, va_list *ap)
+int     preci_proc(const char **format, va_list *ap, t_info *temp)
 {
     int     ret;
+    int     sign;
 
     ret = 0;
+    sign = 1;
     while (**format == ' ')
         (*format)++;
     if (**format == '.')
@@ -70,8 +72,18 @@ int     preci_proc(const char **format, va_list *ap)
         {
             ret = va_arg(*ap, int);
             (*format)++;
+            if (ret < 0)
+                return (0);
+            temp->print_zero = 1;
+            if (ret == 0)
+            {
+                temp->print_zero = 0;
+                temp->flag = 0;
+            }
             return (ret);
         }
+        if (**format == '-')
+            sign = -1;
         while (is_digit(**format))
         {
             ret *= 10;
@@ -79,5 +91,11 @@ int     preci_proc(const char **format, va_list *ap)
             (*format)++;
         }
     }
-    return (ret);
+    if (sign * ret < 0)
+    {
+        temp->width = ret;
+        temp->print_zero = 0;
+        return (0);
+    }
+    return (sign * ret);
 }

@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 22:25:15 by donghwik          #+#    #+#             */
-/*   Updated: 2021/03/27 22:25:28 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/03/28 11:54:58 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct	s_info
 	int			flag;
 	int			precision;
 	int			width;
+	int			print_zero;
 }				t_info;
 
 int		ft_printf(const char *fmts, ...);
@@ -33,7 +34,7 @@ int		is_digit(const char c);
 int		is_option(const char c);
 int		flag_proc(const char **format);
 int		width_proc(const char **format, va_list *ap);
-int		preci_proc(const char **format, va_list *ap);
+int		preci_proc(const char **format, va_list *ap, t_info *temp);
 int     ft_strlen(const char *s);
 int     print(const char **fmt, va_list *ap);
 int     format_print(const char **fmt, va_list* ap);

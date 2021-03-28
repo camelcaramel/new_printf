@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:55 by donghwik          #+#    #+#             */
-/*   Updated: 2021/03/28 10:32:56 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/03/28 11:59:56 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,13 +90,9 @@ int     format_print(const char **format, va_list *ap)
         }
         (*format)++;
     }
+    temp.print_zero = 1;
     temp.flag = flag_proc(format);
     temp.width = width_proc(format, ap);
-    if (temp.width < 0)
-    {
-        temp.flag = 0;
-        temp.width *= -1;
-    }
-    temp.precision = preci_proc(format, ap);
+    temp.precision = preci_proc(format, ap, &temp);
     return (symbol_switch(temp, format, ap));
 }
