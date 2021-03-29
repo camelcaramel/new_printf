@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:55 by donghwik          #+#    #+#             */
-/*   Updated: 2021/03/29 17:33:36 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/03/29 19:52:04 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int     ft_printf(const char *fmt, ...)
 
     result = 0;
     va_start(ap, fmt);
-    result = print(&fmt, &ap, &result);
+    print(&fmt, &ap, &result);
     va_end(ap);
-    return (result);
+    return (result - 1);
 }
 
 int     print(const char **fmt, va_list *ap, int *result)
@@ -96,4 +96,18 @@ int     format_print(const char **format, va_list *ap, int *result)
     temp.width = width_proc(format, ap);
     temp.precision = preci_proc(format, ap, &temp);
     return (symbol_switch(temp, format, ap, result));
+}
+
+
+int main(void)
+{
+    int n = 123;
+    int k = 0;
+    char *s = "hello world, %.d, %.d\n";
+    int ret_f = 0;
+    int ret_o = 0;
+    ret_f = ft_printf(s, n, k);
+    ret_o = printf(s, n, k);
+    printf("return value of mine : %d\nreturn value of origin : %d\n", ret_f, ret_o);
+    return (0);
 }
