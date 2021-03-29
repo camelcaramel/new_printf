@@ -1,51 +1,51 @@
 #include "ft_printf.h"
 
-void	write_char(const char c)
+void	write_char(const char c, int *result)
 {
-	write(1, &c, 1);
+	wc1(c, result);
 }
 
-int     print_char(const char c, t_info info)
+int     print_char(const char c, t_info info, int *result)
 {
     int         len;
 
     len = 1;
 	if (info.flag == 0)
 	{
-		return (print_leftize_char(c, info));
+		return (print_leftize_char(c, info, result));
 	}
     while (info.width - info.precision > 0 && info.width - len > 0)
     {
         if (info.flag == 2)
-			write(1, &"0", 1);
+			wc1('0', result);
 		else	
-			write(1, &" ", 1);
+			wc1(' ', result);
         info.width--;
     }
     while (info.precision - len > 0)
     {
         info.precision--;
-        write(1, &"0", 1);
+        wc1('0', result);
     }
-	write_char(c);
+	write_char(c, result);
     return (1);
 }
 
-int		print_leftize_char(const char c, t_info info)
+int		print_leftize_char(const char c, t_info info, int *result)
 {
 	int         len;
 
     len = 1;
 	while (info.precision - len > 0)
 	{
-		write(1, &"0", 1);
+		wc1('0', result);
 		info.precision--;
 		info.width--;
 	}
-	write_char(c);
+	write_char(c, result);
 	while (info.width - len > 0)
 	{
-		write(1, &" ", 1);
+		wc1(' ', result);
 		info.width--;
 	}
 	return (1);

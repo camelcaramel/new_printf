@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:33 by donghwik          #+#    #+#             */
-/*   Updated: 2021/03/27 23:14:38 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/03/29 23:45:09 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,60 +19,66 @@ int		min(int a, int b)
 	return (a);
 }
 
-void	write_string(const char *s, int len)
+void	write_string(const char *s, int len, int *result)
 {
-	const char *temp;
+	const char	*temp;
+	int			loop;
 
 	temp = s;
 	while (*temp)
 		temp++;
 	if (len != 0)
-		write(1, s, min(len, temp - s));
+		loop = min(len, temp - s);
 	else
-		write(1, s, (temp - s));
+		loop = temp - s;
+	while (loop > 0)
+	{
+		wc1(*(s + (int)temp - loop), result);
+		loop--;
+	}
 }
 
-int     print_string(const char *s, t_info info)
+int     print_string(const char *s, t_info info, int *result)
 {
     int         len;
 
     len = ft_strlen(s);
 	if (info.flag == 0)
 	{
-		return (print_leftize_string(s, info));
+		return (print_leftize_string(s, info, result));
 	}
     while (info.width - info.precision > 0)
     {
         if (info.flag == 2)
-			write(1, &"0", 1);
+			wc1('0', result);
 		else	
-			write(1, &" ", 1);
+			wc1(' ', result);
         info.width--;
     }
     while (info.precision - len > 0)
     {
         info.precision--;
-        write(1, &"0", 1);
+        wc1('0', result);
     }
-	write_string(s, info.precision);
+	write_string(s, info.precision, result);
     return (1);
 }
 
-int		print_leftize_string(const char *s, t_info info)
+int		print_leftize_string(const char *s, t_info info, int *result)
 {
 	int         len;
 
     len = ft_strlen(s);
 	while (info.precision - len > 0)
 	{
-		write(1, &"0", 1);
+		wc1('0', result);
 		info.precision--;
 		info.width--;
 	}
-	write_string(s, info.precision);
+	write_string(s, info.precision, result);
 	while (info.width - len > 0)
 	{
-		write(1, &" ", 1);
+		wc1(' ', result);
 		info.width--;
 	}
 	return (1);

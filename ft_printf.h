@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 22:25:15 by donghwik          #+#    #+#             */
-/*   Updated: 2021/03/29 17:33:36 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/03/29 23:44:51 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,14 @@ void    write_positive_integer(unsigned int n, int radix, int *result);
 void	write_positive_integer_lower(unsigned int n, int radix, int *result);
 int     print_integer_hex(long long n, t_info info, int radix, int *result);
 
-void	write_char(const char c);
-void	write_string(const char *s, int len);
-int     print_char(const char c, t_info info);
-int		print_leftize_char(const char c, t_info info);
+void	write_char(const char c, int *result);
+void	write_string(const char *s, int len, int *result);
+int     print_char(const char c, t_info info, int *result);
+int		print_leftize_char(const char c, t_info info, int *result);
 
 int		min(int a, int b);
-int     print_string(const char *s, t_info info);
-int		print_leftize_string(const char *s, t_info info);
+int     print_string(const char *s, t_info info, int *result);
+int		print_leftize_string(const char *s, t_info info, int *result);
 
 int     print_pointer(long long n, t_info info, int radix, int *result);
 int		print_leftize_pointer(long long n, t_info info, int radix, int *result);

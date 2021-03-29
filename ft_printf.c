@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:55 by donghwik          #+#    #+#             */
-/*   Updated: 2021/03/29 19:55:04 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/03/29 23:50:53 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ int     symbol_switch(t_info info, const char **fmt, va_list *ap, int *result)
         return (print_pointer((long long)va_arg(*ap, int *), info, 16, result));
     }
     else if (**fmt == 'c')
-        return (print_char(va_arg(*ap, int), info));
+        return (print_char(va_arg(*ap, int), info, result));
     else if (**fmt == 's')
-        return (print_string(va_arg(*ap, char *), info));
+        return (print_string(va_arg(*ap, char *), info, result));
     else
         while (info.width > 0)
         {
@@ -106,8 +106,8 @@ int     format_print(const char **format, va_list *ap, int *result)
 //     char *s = "hello world, %.d, %.d\n";
 //     int ret_f = 0;
 //     int ret_o = 0;
-//     ret_f = ft_printf(s, n, k);
-//     ret_o = printf(s, n, k);
+//     ret_f = ft_printf(s, k, n);
+//     ret_o = printf(s, k, n);
 //     printf("return value of mine : %d\nreturn value of origin : %d\n", ret_f, ret_o);
 //     return (0);
 // }
