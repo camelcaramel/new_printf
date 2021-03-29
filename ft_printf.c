@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:55 by donghwik          #+#    #+#             */
-/*   Updated: 2021/03/29 19:53:20 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/03/29 19:55:04 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int     ft_printf(const char *fmt, ...)
     va_start(ap, fmt);
     print(&fmt, &ap, &result);
     va_end(ap);
-    return (result - 1);
+    return (result);
 }
 
 int     print(const char **fmt, va_list *ap, int *result)
