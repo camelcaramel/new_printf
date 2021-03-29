@@ -12,15 +12,15 @@ int     print_integer_hex(long long n, t_info info, int radix, int *result)
     while (info.width - info.precision > 0 && info.width - len > 0)
     {
         if (info.flag == 2)
-			wc(' ', result);
+			wc1(' ', result);
 		else	
-			wc(' ', result);
+			wc1(' ', result);
         info.width--;
     }
     while (info.precision - len > 0)
     {
         info.precision--;
-        wc(' ', result);
+        wc1(' ', result);
     }
 	if (radix == 15)
 		write_positive_integer_lower(number, radix + 1, result);

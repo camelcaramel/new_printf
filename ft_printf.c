@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:55 by donghwik          #+#    #+#             */
-/*   Updated: 2021/03/29 17:31:24 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/03/29 17:33:36 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int     print(const char **fmt, va_list *ap, int *result)
         if (**fmt == '%')
         {
             if(*((*fmt)+1) == '%')
-                wc(*((*fmt)++), result);
+                wc1(*((*fmt)++), result);
             else
             {
                 (*fmt)++;
@@ -39,7 +39,7 @@ int     print(const char **fmt, va_list *ap, int *result)
             }
         }
         else
-            wc(**fmt, result);
+            wc1(**fmt, result);
         (*fmt)++;
     }
     return (1);
@@ -69,7 +69,7 @@ int     symbol_switch(t_info info, const char **fmt, va_list *ap, int *result)
     else
         while (info.width > 0)
         {
-            wc(' ', result);
+            wc1(' ', result);
             info.width--;
         }
     return (1);
@@ -83,10 +83,10 @@ int     format_print(const char **format, va_list *ap, int *result)
                 && !is_option(**format) && !(**format))
     {
         if (**format == ' ')
-            wc(**format, result);
+            wc1(**format, result);
         else
         {
-            wc(*((*format)++), result);
+            wc1(*((*format)++), result);
             break;
         }
         (*format)++;

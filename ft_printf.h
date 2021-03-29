@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 22:25:15 by donghwik          #+#    #+#             */
-/*   Updated: 2021/03/29 17:31:24 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/03/29 17:33:36 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,5 @@ int		print_leftize_string(const char *s, t_info info);
 
 int     print_pointer(long long n, t_info info, int radix, int *result);
 int		print_leftize_pointer(long long n, t_info info, int radix, int *result);
-void	wc(const char c, int *result);
+void	wc1(const char c, int *result);
 #endif
