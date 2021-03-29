@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:55 by donghwik          #+#    #+#             */
-/*   Updated: 2021/03/29 17:04:32 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/03/29 17:19:54 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ int     symbol_switch(t_info info, const char **fmt, va_list *ap, int *result)
     else if (**fmt == 'u')
         return (print_integer(va_arg(*ap, unsigned int), info, 10, result));
     else if (**fmt == 'x')
-        return (print_integer_hex(va_arg(*ap, int), info, 16, 1));
+        return (print_integer_hex(va_arg(*ap, int), info, 15, result));
     else if (**fmt == 'X')
-        return (print_integer_hex(va_arg(*ap, int), info, 16, 0));
+        return (print_integer_hex(va_arg(*ap, int), info, 16, result));
     else if (**fmt == 'p')
     {
         write(1, &"0x1", 3);

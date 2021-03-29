@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 22:25:15 by donghwik          #+#    #+#             */
-/*   Updated: 2021/03/29 17:13:06 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/03/29 17:18:56 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int		print_leftize_integer(long long n, t_info info, int radix, int *result);
 int		print_leftize_integer_lower(long long n, t_info info, int radix, int *result);
 void    write_positive_integer(unsigned int n, int radix, int *result);
 void	write_positive_integer_lower(unsigned int n, int radix, int *result);
-int     print_integer_hex(long long n, t_info info, int radix, short is_lower);
+int     print_integer_hex(long long n, t_info info, int radix, int *result);
 
 void	write_char(const char c);
 void	write_string(const char *s, int len);
