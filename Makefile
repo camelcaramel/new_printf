@@ -1,5 +1,5 @@
 SRCS=parser.c util.c write_char.c write_hex.c write_num.c\
-write_pointer.c write_string.c ft_printf.c
+write_pointer.c write_string.c ft_printf.c write_util.c
 OBJS=$(SRCS:.c=.o)
 TARGET=libftprintf.a
 MLIB=ar rc
