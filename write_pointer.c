@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:37 by donghwik          #+#    #+#             */
-/*   Updated: 2021/03/29 17:26:55 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/03/29 17:31:24 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ int     print_pointer(long long n, t_info info, int radix, int *result)
 	}
     while (info.width - info.precision > 0 && info.width - 11 > 0)
     {
-		write_count(' ', result);
+		wc(' ', result);
         info.width--;
     }
 	while (9 - len > 0)
 	{
-		write_count('0', result);
+		wc('0', result);
 		len++;
 	}
 	write_positive_integer_lower(n, radix, result);
@@ -43,13 +43,13 @@ int		print_leftize_pointer(long long n, t_info info, int radix, int *result)
     len = ft_numlen(n, radix);
 	while (9 - len > 0)
 	{
-		write_count('0', result);
+		wc('0', result);
 		len++;
 	}
 	write_positive_integer_lower(n, radix, result);
 	while (info.width - 11 > 0)
 	{
-		write_count(' ', result);
+		wc(' ', result);
 		info.width--;
 	}
 	return (1);
