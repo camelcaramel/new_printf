@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:55 by donghwik          #+#    #+#             */
-/*   Updated: 2021/03/28 11:59:56 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/03/29 17:04:32 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,41 +17,42 @@ int     ft_printf(const char *fmt, ...)
     va_list ap;
     int     result;
 
+    result = 0;
     va_start(ap, fmt);
-    result = print(&fmt, &ap);
+    result = print(&fmt, &ap, &result);
     va_end(ap);
-    return (0);
+    return (result);
 }
 
-int     print(const char **fmt, va_list *ap)
+int     print(const char **fmt, va_list *ap, int *result)
 {
     while (**fmt)
     {
         if (**fmt == '%')
         {
             if(*((*fmt)+1) == '%')
-                write(1, (*fmt)++, 1);
+                write_count(*((*fmt)++), result);
             else
             {
                 (*fmt)++;
-                format_print(fmt, ap);
+                format_print(fmt, ap, result);
             }
         }
         else
-            write(1, *fmt, 1);
+            write_count(**fmt, result);
         (*fmt)++;
     }
     return (1);
 }
 
-int     symbol_switch(t_info info, const char **fmt, va_list *ap)
+int     symbol_switch(t_info info, const char **fmt, va_list *ap, int *result)
 {
     while (**fmt == ' ')
         (*fmt)++;
     if (**fmt == 'd' || **fmt == 'i')
-        return (print_integer(va_arg(*ap, int), info, 10));
+        return (print_integer(va_arg(*ap, int), info, 10, result));
     else if (**fmt == 'u')
-        return (print_integer(va_arg(*ap, unsigned int), info, 10));
+        return (print_integer(va_arg(*ap, unsigned int), info, 10, result));
     else if (**fmt == 'x')
         return (print_integer_hex(va_arg(*ap, int), info, 16, 1));
     else if (**fmt == 'X')
@@ -68,13 +69,13 @@ int     symbol_switch(t_info info, const char **fmt, va_list *ap)
     else
         while (info.width > 0)
         {
-            write(1, &" ", 1);
+            write_count(' ', result);
             info.width--;
         }
     return (1);
 }
 
-int     format_print(const char **format, va_list *ap)
+int     format_print(const char **format, va_list *ap, int *result)
 {
     t_info temp;
 
@@ -82,10 +83,10 @@ int     format_print(const char **format, va_list *ap)
                 && !is_option(**format) && !(**format))
     {
         if (**format == ' ')
-            write(1, *format, 1);
+            write_count(**format, result);
         else
         {
-            write(1, (*format)++, 1);
+            write_count(*((*format)++), result);
             break;
         }
         (*format)++;
@@ -94,5 +95,5 @@ int     format_print(const char **format, va_list *ap)
     temp.flag = flag_proc(format);
     temp.width = width_proc(format, ap);
     temp.precision = preci_proc(format, ap, &temp);
-    return (symbol_switch(temp, format, ap));
+    return (symbol_switch(temp, format, ap, result));
 }

@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 22:25:15 by donghwik          #+#    #+#             */
-/*   Updated: 2021/03/28 11:54:58 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/03/29 17:13:06 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,26 @@ typedef struct	s_info
 }				t_info;
 
 int		ft_printf(const char *fmts, ...);
-int		is_flag(const char c);
-int		is_digit(const char c);
-int		is_option(const char c);
+int     print(const char **fmt, va_list *ap, int *result);
+int     format_print(const char **fmt, va_list* ap, int *result);
+int     symbol_switch(t_info info, const char **fmt, va_list* ap, int *result);
+
 int		flag_proc(const char **format);
 int		width_proc(const char **format, va_list *ap);
 int		preci_proc(const char **format, va_list *ap, t_info *temp);
-int     ft_strlen(const char *s);
-int     print(const char **fmt, va_list *ap);
-int     format_print(const char **fmt, va_list* ap);
-int     print_integer(long long n, t_info info, int radix);
-int     ft_numlen(long long n, int radix);
-void    write_positive_integer(unsigned int n, int radix);
-int     symbol_switch(t_info info, const char **fmt, va_list* ap);
 
-int		print_leftize_integer(long long n, t_info info, int radix, short is_lower);
-void	write_positive_integer_lower(unsigned int n, int radix);
+
+int		is_flag(const char c);
+int		is_digit(const char c);
+int		is_option(const char c);
+int     ft_strlen(const char *s);
+int     ft_numlen(long long n, int radix);
+
+int     print_integer(long long n, t_info info, int radix, int *result);
+int		print_leftize_integer(long long n, t_info info, int radix, int *result);
+int		print_leftize_integer_lower(long long n, t_info info, int radix, int *result);
+void    write_positive_integer(unsigned int n, int radix, int *result);
+void	write_positive_integer_lower(unsigned int n, int radix, int *result);
 int     print_integer_hex(long long n, t_info info, int radix, short is_lower);
 
 void	write_char(const char c);
@@ -58,4 +62,5 @@ int		print_leftize_string(const char *s, t_info info);
 
 int     print_pointer(long long n, t_info info, int radix);
 int		print_leftize_pointer(long long n, t_info info, int radix);
+void	write_count(const char c, int *result);
 #endif
