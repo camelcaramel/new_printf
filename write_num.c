@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:30 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/02 11:17:11 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/02 11:20:33 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int     print_integer(long long n, t_info info, int radix, int *result)
     }
     if (n == 0 && info.print_zero == 0)
     {
-        if (info.precision == 0)
+        if (info.precision == 0 && info.width != 0)
             wc1(' ', result);
     }
     else
@@ -85,7 +85,7 @@ int		print_leftize_integer(long long n, t_info info, int radix, int *result)
         wc1('-', result);
     if (n == 0 && info.print_zero == 0)
     {
-        if (info.precision == 0)
+        if (info.precision == 0 && info.width != 0)
             wc1(' ', result);
     }
     else if (radix == 15)
