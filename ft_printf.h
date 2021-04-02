@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 22:25:15 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/02 11:55:09 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/02 12:28:15 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct	s_info
 	int			precision;
 	int			width;
 	int			print_zero;
+	int			is_va;
 }				t_info;
 
 int		ft_printf(const char *fmts, ...);
