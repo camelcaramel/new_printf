@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:30 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/02 10:44:28 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/02 10:50:31 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int     print_integer(long long n, t_info info, int radix, int *result)
 
     len = ft_numlen(n, radix);
 	if (info.flag == 0)
-		return (print_leftize_integer(n, info, radix, 0));
+		return (print_leftize_integer(n, info, radix, result));
     if (n < 0)
         info.width--;
     while (info.width - info.precision > 0 && info.width - len > 0)
@@ -80,7 +80,7 @@ int		print_leftize_integer(long long n, t_info info, int radix, int *result)
 	}
 	if (n < 0 && (n *= -1) > 0)
         wc1('-', result);
-    if (!info.print_zero && n == 0)
+    if (!(!info.print_zero && n == 0))
         wc1(' ', result);
     if (radix == 15)
         write_positive_integer_lower(n, radix, result);
