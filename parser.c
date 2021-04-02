@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:26 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/02 14:31:57 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/02 14:59:51 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int     preci_proc(const char **format, va_list *ap, t_info *temp)
             {
                 temp->print_zero = 1;
                 // chagne point
-                return (ret);
+                return (0);
             }
             if (ret == 0)
                 temp->print_zero = 0;
