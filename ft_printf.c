@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:55 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/02 15:26:53 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/02 15:30:07 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int     symbol_switch(t_info info, const char **fmt, va_list *ap, int *result)
     else if (**fmt == 'p')
     {
         write(1, &"0x", 2);
+        (*result) += 2;
         return (print_pointer((long long)va_arg(*ap, int *), info, 16, result));
     }
     else if (**fmt == 'c')

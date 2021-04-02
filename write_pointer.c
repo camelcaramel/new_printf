@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:37 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/02 15:26:22 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/02 15:28:16 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int     print_pointer(long long n, t_info info, int radix, int *result)
 		print_leftize_pointer(n, info, radix, result);
 		return (1);
 	}
-    while (info.width - info.precision > 0 && info.width - 11 > 0)
+    while (info.width - info.precision > 0 && info.width - len > 0)
     {
 		wc1(' ', result);
         info.width--;
