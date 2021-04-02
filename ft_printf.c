@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:55 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/02 11:55:20 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/02 14:16:48 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ int     format_print(const char **format, va_list *ap, int *result)
 // {
 //     //int n = 123;
 //     int k = 0;
-//     char *s = "hello world, %.d, %s\n";
+//     char *s = "hello world, %.d, %.s\n";
 //     int ret_f = 0;
 //     int ret_o = 0;
 //     char *string = "hello world";
