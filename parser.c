@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:26 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/02 11:44:28 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/02 11:47:25 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int     preci_proc(const char **format, va_list *ap, t_info *temp)
         (*format)++;
     if (**format == '.')
     {
-        temp->print_zero = 1;
+        temp->print_zero = 0;
         (*format)++;
         while (**format == ' ')
             (*format)++;
@@ -99,7 +99,7 @@ int     preci_proc(const char **format, va_list *ap, t_info *temp)
         temp->print_zero = 0;
         return (0);
     }
-    if (ret  == 0)
-        temp->print_zero = 0;
+    if (ret > 0)
+        temp->print_zero = 1;
     return (sign * ret);
 }
