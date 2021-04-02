@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:33 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/02 13:59:54 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/02 14:02:47 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,11 @@ int     print_string(const char *s, t_info info, int *result)
 			wc1(' ', result);
         info.width--;
     }
-    while (info.precision - len > 0)
-    {
-        info.precision--;
-        wc1('0', result);
-    }
+    // while (info.precision - len > 0)
+    // {
+    //     info.precision--;
+    //     wc1('0', result);
+    // }
 	write_string(s, info.precision, result);
     return (1);
 }
