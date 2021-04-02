@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:33 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/02 15:12:26 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/02 15:13:31 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,17 +65,9 @@ int     print_string(const char *s, t_info info, int *result)
 		len = 0;
     while (info.width - len > 0)
     {
-        // if (info.flag == 2)
-		// 	wc1('0', result);
-		// else	
-			wc1(' ', result);
+		wc1(' ', result);
         info.width--;
     }
-    // while (info.precision - len > 0)
-    // {
-    //     info.precision--;
-    //     wc1('0', result);
-    // }
 	write_string(s, info.precision, result);
     return (1);
 }
@@ -85,12 +77,6 @@ int		print_leftize_string(const char *s, t_info info, int *result)
 	int         len;
 
     len = ft_strlen(s);
-	// while (info.precision - len > 0)
-	// {
-	// 	wc1('0', result);
-	// 	info.precision--;
-	// 	info.width--;
-	// }
 	if (info.precision < 0)
 		info.precision = len;
 	write_string(s, info.precision, result);
