@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:55 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/02 10:38:08 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/02 11:11:01 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,8 @@ int     format_print(const char **format, va_list *ap, int *result)
 //     char *string = "hello world";
 //     ret_f = ft_printf(s, k, string);
 //     ret_o = printf(s, k, string);
+//     ret_f = ft_printf("%5.0d*\n", 0);
+//     ret_o = printf("%5.0d*\n", ft_numlen(0, 10));
 //     printf("return value of mine : %d\nreturn value of origin : %d\n", ret_f, ret_o);
 //     return (0);
 // }
