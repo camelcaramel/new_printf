@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:33 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/02 14:33:40 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/02 14:35:59 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ void	write_string(const char *s, int len, int *result)
 
 	i = 0;
 	temp = s;
-	if (len < 0)
-		len *= -1;
 	while (*temp)
 		temp++;
-	if (len != 0)
+	if (len < 0)
+		loop = temp - s;
+	else if (len != 0)
 		loop = min(len, temp - s);
 	else
 		loop = temp - s;
