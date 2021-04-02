@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:33 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/02 14:55:23 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/02 14:57:16 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ int		print_leftize_string(const char *s, t_info info, int *result)
 	// 	info.width--;
 	// }
 	write_string(s, info.precision, result);
+	if (info.is_dot != 1)
+		info.precision = len;
 	len = min(len, info.precision);
 	if (len < 0)
 		len = 0;
