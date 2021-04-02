@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:30 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/02 12:00:19 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/02 12:04:29 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int     print_integer(long long n, t_info info, int radix, int *result)
 		return (print_leftize_integer(n, info, radix, result));
     if (n < 0)
         info.width--;
-    if (n < 0 && (n *= -1) > 0)
+    if (n < 0 && (n *= -1) > 0 && info.flag == 2)
         wc1('-', result);
     while (info.width - info.precision > 0 && info.width - len > 0)
     {
@@ -53,6 +53,8 @@ int     print_integer(long long n, t_info info, int radix, int *result)
 			wc1(' ', result);
         info.width--;
     }
+    if (n < 0 && (n *= -1) > 0)
+        wc1('-', result);
     while (info.precision - len > 0)
     {
         info.precision--;
@@ -79,14 +81,14 @@ int		print_leftize_integer(long long n, t_info info, int radix, int *result)
     len = ft_numlen(n, radix);
 	if (n < 0)
 		info.width--;
+    if (n < 0 && (n *= -1) > 0)
+        wc1('-', result);
 	while (info.precision - len > 0)
 	{
 		wc1('0', result);
 		info.precision--;
 		info.width--;
 	}
-	if (n < 0 && (n *= -1) > 0)
-        wc1('-', result);
     if (n == 0 && info.print_zero == 0)
     {
         if (info.precision ==0  && info.width == 0)
