@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:33 by donghwik          #+#    #+#             */
-/*   Updated: 2021/03/29 23:45:09 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/02 10:36:18 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ void	write_string(const char *s, int len, int *result)
 {
 	const char	*temp;
 	int			loop;
+	int			i;
 
+	i = 0;
 	temp = s;
 	while (*temp)
 		temp++;
@@ -33,8 +35,9 @@ void	write_string(const char *s, int len, int *result)
 		loop = temp - s;
 	while (loop > 0)
 	{
-		wc1(*(s + (int)temp - loop), result);
+		wc1(*(s + i), result);
 		loop--;
+		i++;
 	}
 }
 
