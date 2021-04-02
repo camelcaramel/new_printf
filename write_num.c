@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:30 by donghwik          #+#    #+#             */
-/*   Updated: 2021/03/29 23:31:12 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/03/29 23:55:34 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int     print_integer(long long n, t_info info, int radix, int *result)
         info.width--;
     }
     if (n < 0 && (n *= -1) > 0)
-        wc1('-', result);
+        wc1(' ', result);
     while (info.precision - len > 0)
     {
         info.precision--;

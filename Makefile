@@ -8,15 +8,15 @@ CC=gcc
 TEST_CC=clang
 TEST_TARGET=a.out
 
-# testre : test_clean test
+testre : test_clean test
 
-# test : $(TEST_TARGET)
+test : $(TEST_TARGET)
 
-# test_clean : 
-# 	rm -f $(TEST_TARGET)
+test_clean : 
+	rm -f $(TEST_TARGET)
 
-# $(TEST_TARGET) : 
-# 	$(TEST_CC) $(CFLAGS) $(SRCS)
+$(TEST_TARGET) : 
+	$(TEST_CC) $(CFLAGS) $(SRCS)
 
 all : $(TARGET)
 
