@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:26 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/02 12:36:27 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/02 12:40:11 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int     preci_proc(const char **format, va_list *ap, t_info *temp)
         {
             ret = va_arg(*ap, int);
             (*format)++;
-            if (temp->is_va == 1 && temp->flag == 2)
+            if (temp->is_va == 1 && temp->flag == 2 && ret > 0)
                 temp->flag = 1;
             if (ret < 0)
                 return (0);
