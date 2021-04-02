@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:55 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/02 15:31:25 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/02 15:45:25 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ int     ft_printf(const char *fmt, ...)
     int     result;
 
     result = 0;
+    if (fmt == NULL)
+    {
+        write_string("(null)", 6, &result);
+        return (result);
+    }
     va_start(ap, fmt);
     print(&fmt, &ap, &result);
     va_end(ap);

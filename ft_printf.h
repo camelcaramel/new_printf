@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 22:25:15 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/02 14:23:01 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/02 15:43:11 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int     print_char(const char c, t_info info, int *result);
 int		print_leftize_char(const char c, t_info info, int *result);
 
 int		min(int a, int b);
-int     print_string(const char *s, t_info info, int *result);
+int     print_string(char *s, t_info info, int *result);
 int		print_leftize_string(const char *s, t_info info, int *result);
 
 int     print_pointer(long long n, t_info info, int radix, int *result);
