@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:26 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/02 12:10:38 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/02 12:13:50 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int     flag_proc(const char **format)
     }
     return (ret);
 }
-// handling if width is negative value
+
 int     width_proc(const char **format, va_list *ap, t_info *info)
 {
     int     ret;
@@ -84,7 +84,7 @@ int     preci_proc(const char **format, va_list *ap, t_info *temp)
             if (ret == 0)
             {
                 temp->print_zero = 0;
-                temp->flag = 0;
+                //temp->flag = 0;
             }
             return (ret);
         }
