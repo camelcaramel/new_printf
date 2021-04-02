@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:26 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/02 12:13:50 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/02 12:21:48 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int     width_proc(const char **format, va_list *ap, t_info *info)
     {
         ret = va_arg(*ap, int);
         (*format)++;
+        info->flag = 1;
         if (ret < 0)
         {
             info->flag = 0;
@@ -78,6 +79,7 @@ int     preci_proc(const char **format, va_list *ap, t_info *temp)
         {
             ret = va_arg(*ap, int);
             (*format)++;
+            temp->flag = 1;
             temp->print_zero = 1;
             if (ret < 0)
                 return (0);
