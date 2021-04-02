@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 22:25:15 by donghwik          #+#    #+#             */
-/*   Updated: 2021/03/29 23:44:51 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/02 11:55:09 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int     format_print(const char **fmt, va_list* ap, int *result);
 int     symbol_switch(t_info info, const char **fmt, va_list* ap, int *result);
 
 int		flag_proc(const char **format);
-int		width_proc(const char **format, va_list *ap);
+int		width_proc(const char **format, va_list *ap, t_info *info);
 int		preci_proc(const char **format, va_list *ap, t_info *temp);
 
 
