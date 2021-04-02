@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:33 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/02 14:19:56 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/02 14:24:14 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int     print_string(const char *s, t_info info, int *result)
     int         len;
 
     len = ft_strlen(s);
-	if (info.width == 0 && info.precision == 0)
+	if (info.is_dot == 1 && info.precision == 0)
 		return (1);
 	if (info.flag == 0)
 	{
