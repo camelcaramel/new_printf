@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:26 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/02 15:00:59 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/03 16:29:26 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 int     flag_proc(const char **format)
 {
     int     ret;
+    int     is_minus;
 
     ret = 1;
+    is_minus = 1;
     while (**format == '0' || **format == '-' || **format == ' ') 
     {
         if (**format == '0')
@@ -25,11 +27,11 @@ int     flag_proc(const char **format)
         }
         else if (**format == '-')
         {
-            ret *= 0;
+            is_minus =  0;
         }
         (*format)++;
     }
-    return (ret);
+    return (ret * is_minus);
 }
 
 int     width_proc(const char **format, va_list *ap, t_info *info)

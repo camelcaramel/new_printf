@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:55 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/03 16:21:34 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/03 16:33:42 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int     format_print(const char **format, va_list *ap, int *result)
     t_info temp;
 
     while (!is_digit(**format) && !is_flag(**format) 
-                && !is_option(**format) && !(**format))
+                && !is_option(**format) && (**format))
     {
         if (**format == ' ')
             wc1(**format, result);
@@ -110,9 +110,9 @@ int     format_print(const char **format, va_list *ap, int *result)
 //     // char *s = "hello world, %5%";
 //     int ret_f = 0;
 //     int ret_o = 0;
-//     // char *string = "hello world";
-//     ret_f = ft_printf("hello world, %05%\n");
-//     ret_o = printf("hello world, %05%\n");
+//     char *string = "hello world";
+//     ret_f = ft_printf("%-020d\n", 123);
+//     ret_o = printf("%-020d\n", 123);
 //     // ret_f = ft_printf("%5.0d*\n", 0);
 //     // ret_o = printf("%5.0d*\n", ft_numlen(0, 10));
 //     printf("return value of mine : %d\nreturn value of origin : %d\n", ret_f, ret_o);
