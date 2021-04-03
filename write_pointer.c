@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:37 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/03 18:58:45 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/03 19:00:13 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int     print_pointer(unsigned long long n, t_info info, int radix, int *result)
 {
     int         len;
 
-	if (n == NULL)
+	if (n == (unsigned long long)NULL)
 		n = 0;
     len = ft_pointer_numlen(n, radix) + 2;
 	printf("width = %d, precision = %d, len = %d\n", info.width, info.precision, len);
