@@ -6,13 +6,13 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:30 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/03 17:33:48 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/03 17:49:01 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void    write_positive_integer(unsigned int n, int radix, int *result)
+void    write_positive_integer(unsigned long long n, int radix, int *result)
 {
     if (n / radix == 0)
     {
@@ -23,7 +23,7 @@ void    write_positive_integer(unsigned int n, int radix, int *result)
     wc1("0123456789ABCDEF"[n % radix], result);
 }
 
-void	write_positive_integer_lower(unsigned int n, int radix, int *result)
+void	write_positive_integer_lower(unsigned long long n, int radix, int *result)
 {
 	if (n / radix == 0)
     {

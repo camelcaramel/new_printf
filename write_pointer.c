@@ -6,42 +6,67 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:37 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/02 15:40:10 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/03 17:53:51 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int     print_pointer(long long n, t_info info, int radix, int *result)
+int     ft_pointer_numlen(unsigned long long n, int radix)
+{
+    unsigned long long ret;
+
+    ret = 0;
+    if (n == 0)
+        return (1);
+    while (n > 0)
+    {
+        ret++;
+        n /= radix;
+    }
+    return (ret);
+}
+
+int     print_pointer(unsigned long long n, t_info info, int radix, int *result)
 {
     int         len;
 
-    len = ft_numlen(n, radix) + 2;
+    len = ft_pointer_numlen(n, radix) + 2;
 	if (info.flag == 0)
 	{
 		print_leftize_pointer(n, info, radix, result);
 		return (1);
 	}
-    while (info.width - len > 0)
+    while (info.width - len > 0 && info.width -  info.precision > 0)
     {
 		wc1(' ', result);
         info.width--;
     }
 	write(1, &"0x", 2);
 	(*result) += 2;
+	while (info.precision - len - 2 > 0)
+	{
+		wc1('0', result);
+		info.precision--;
+	}
 	write_positive_integer_lower(n, radix, result);
     return (1);
 }
 
-int		print_leftize_pointer(long long n, t_info info, int radix, int *result)
+int		print_leftize_pointer(unsigned long long n, t_info info, int radix, int *result)
 {
 	int         len;
 
-    len = ft_numlen(n, radix) + 2;
+    len = ft_pointer_numlen(n, radix) + 2;
 	write(1, &"0x", 2);
 	(*result) += 2;
+	while (info.precision - len - 2 > 0)
+	{
+		wc1('0', result);
+		info.precision--;
+	}
 	write_positive_integer_lower(n, radix, result);
-	while (info.width - len > 0)
+	while (info.width - len > 0 && info.width - info.precision > 0)
 	{
 		wc1(' ', result);
 		info.width--;

@@ -2,8 +2,8 @@
 
 int     print_integer_hex(long long n, t_info info, int radix, int *result)
 {
-    int         len;
-	unsigned int	number;
+    int                 len;
+	unsigned int        number;
 
 	number = (unsigned int)n;
 	len = ft_numlen(number, radix);

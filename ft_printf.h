@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 22:25:15 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/02 15:43:11 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/03 17:49:16 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ int     ft_numlen(long long n, int radix);
 int     print_integer(long long n, t_info info, int radix, int *result);
 int		print_leftize_integer(long long n, t_info info, int radix, int *result);
 int		print_leftize_integer_lower(long long n, t_info info, int radix, int *result);
-void    write_positive_integer(unsigned int n, int radix, int *result);
-void	write_positive_integer_lower(unsigned int n, int radix, int *result);
+void    write_positive_integer(unsigned long long n, int radix, int *result);
+void	write_positive_integer_lower(unsigned long long n, int radix, int *result);
 int     print_integer_hex(long long n, t_info info, int radix, int *result);
 
 void	write_char(const char c, int *result);
@@ -62,7 +62,8 @@ int		min(int a, int b);
 int     print_string(char *s, t_info info, int *result);
 int		print_leftize_string(const char *s, t_info info, int *result);
 
-int     print_pointer(long long n, t_info info, int radix, int *result);
-int		print_leftize_pointer(long long n, t_info info, int radix, int *result);
+int     print_pointer(unsigned long long n, t_info info, int radix, int *result);
+int		print_leftize_pointer(unsigned long long n, t_info info, int radix, int *result);
 void	wc1(const char c, int *result);
+int     ft_pointer_numlen(unsigned long long n, int radix);
 #endif
