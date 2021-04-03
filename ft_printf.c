@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:55 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/03 22:04:22 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/03 22:06:14 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int     symbol_switch(t_info info, const char **fmt, va_list *ap, int *result)
     while (**fmt == ' ')
         (*fmt)++;
     temp = **fmt;
-    if (is_option(temp) && temp == '%')
+    if (is_option(temp) || temp == '%')
         (*fmt)++;
     if (temp == 'd' || temp == 'i')
         return (print_integer(va_arg(*ap, int), info, 10, result));
