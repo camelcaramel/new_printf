@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:37 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/03 19:01:27 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/03 19:12:45 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,12 @@ int     print_pointer(unsigned long long n, t_info info, int radix, int *result)
 {
     int         len;
 
-	if (n == (unsigned long long)NULL)
-		n = 0;
     len = ft_pointer_numlen(n, radix) + 2;
+	if (n == (unsigned long long)NULL)
+	{
+		len--;
+		radix = 15;
+	}
 	if (info.flag == 0)
 	{
 		print_leftize_pointer(n, info, radix, result);
@@ -51,7 +54,8 @@ int     print_pointer(unsigned long long n, t_info info, int radix, int *result)
 		wc1('0', result);
 		info.precision--;
 	}
-	write_positive_integer_lower(n, radix, result);
+	if (radix != 15)
+		write_positive_integer_lower(n, radix, result);
     return (1);
 }
 
@@ -62,12 +66,15 @@ int		print_leftize_pointer(unsigned long long n, t_info info, int radix, int *re
     len = ft_pointer_numlen(n, radix) + 2;
 	write(1, &"0x", 2);
 	(*result) += 2;
+	if (radix == 15)
+		len = 2;
 	while (info.precision - len + 2 > 0)
 	{
 		wc1('0', result);
 		info.precision--;
 	}
-	write_positive_integer_lower(n, radix, result);
+	if (radix != 15)
+		write_positive_integer_lower(n, radix, result);
 	while (info.width - len > 0 && info.width - info.precision > 0)
 	{
 		wc1(' ', result);
