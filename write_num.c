@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:30 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/03 16:55:05 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/03 16:55:54 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ int     print_integer(long long n, t_info info, int radix, int *result)
         if (info.flag == 2 && info.is_dot != 1)
         {
             if (info.precision < 0)
-                wc1('0', 1);
+                wc1('0', result);
             else
-                wc1(' ', 1);
+                wc1(' ', result);
         }
 		else	
 			wc1(' ', result);
