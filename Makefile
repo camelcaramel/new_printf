@@ -16,7 +16,7 @@ TEST_TARGET=a.out
 # 	rm -f $(TEST_TARGET)
 
 # $(TEST_TARGET) : 
-# 	$(TEST_CC) $(CFLAGS) $(SRCS)
+# 	$(TEST_CC) $(SRCS)
 
 all : $(TARGET)
 

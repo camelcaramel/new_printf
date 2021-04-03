@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:55 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/02 15:45:25 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/03 16:18:36 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int     print(const char **fmt, va_list *ap, int *result)
 
 int     symbol_switch(t_info info, const char **fmt, va_list *ap, int *result)
 {
-    while (**fmt == ' ')
+    while (**fmt == ' ' && !(**fmt))
         (*fmt)++;
     if (**fmt == 'd' || **fmt == 'i')
         return (print_integer(va_arg(*ap, int), info, 10, result));
@@ -68,6 +68,8 @@ int     symbol_switch(t_info info, const char **fmt, va_list *ap, int *result)
         return (print_char(va_arg(*ap, int), info, result));
     else if (**fmt == 's')
         return (print_string(va_arg(*ap, char *), info, result));
+    else if (**fmt == '%')
+        return (print_char('%', info, result));
     else
         while (info.width > 0)
         {
@@ -104,15 +106,15 @@ int     format_print(const char **format, va_list *ap, int *result)
 // int main(void)
 // {
 //     //int n = 123;
-//     int k = 0;
-//     char *s = "hello world, %.d, %.s\n";
+//     // int k = 0;
+//     // char *s = "hello world, %5%";
 //     int ret_f = 0;
 //     int ret_o = 0;
-//     char *string = "hello world";
-//     ret_f = ft_printf(s, k, string);
-//     ret_o = printf(s, k, string);
-//     ret_f = ft_printf("%5.0d*\n", 0);
-//     ret_o = printf("%5.0d*\n", ft_numlen(0, 10));
+//     // char *string = "hello world";
+//     ret_f = ft_printf("hello world, %05%\n");
+//     ret_o = printf("hello world, %05%\n");
+//     // ret_f = ft_printf("%5.0d*\n", 0);
+//     // ret_o = printf("%5.0d*\n", ft_numlen(0, 10));
 //     printf("return value of mine : %d\nreturn value of origin : %d\n", ret_f, ret_o);
 //     return (0);
 // }
