@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:33 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/03 19:21:44 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/03 19:24:26 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,6 @@ int     print_string(char *s, t_info info, int *result)
 	if (s == NULL)
 		s = "(null)";
     len = ft_strlen(s);
-	if (info.flag == 0)
-	{
-		return (print_leftize_string(s, info, result));
-	}
 	if (info.is_dot == 1 && info.precision == 0)
 	{
 		while (info.width-- > 0)
@@ -67,6 +63,10 @@ int     print_string(char *s, t_info info, int *result)
 	}
 	if (info.is_dot != 1 || info.precision  < 0)
 		info.precision = len;
+	if (info.flag == 0)
+	{
+		return (print_leftize_string(s, info, result));
+	}
 	len = min(info.precision, len);
 	if (len < 0)
 		len = 0;
