@@ -11,8 +11,15 @@ int     print_integer_hex(long long n, t_info info, int radix, int *result)
 		return (print_leftize_integer(number, info, radix, result));
     while (info.width - info.precision > 0 && info.width - len > 0)
     {
-        if (info.flag == 2)
-			wc1('0', result);
+        if (info.flag == 2 && info.is_dot != 1)
+            wc1('0', result);
+        else if (info.flag == 2 && info.is_dot == 1)
+        {
+            if (info.precision <= 0)
+                wc1('0', result);
+            else
+                wc1(' ', result);
+        }
 		else	
 			wc1(' ', result);
         info.width--;
