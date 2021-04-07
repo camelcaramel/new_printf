@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:55 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/07 16:56:27 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/07 16:57:50 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int     format_print(const char **format, va_list *ap, int *result)
     t_info temp;
 
     while (!is_digit(**format) && !is_flag(**format) 
-                && !is_option(**format) && !(**format))
+                && !is_option(**format) && (**format))
     {
         if (**format == ' ')
             wc1(**format, result);
