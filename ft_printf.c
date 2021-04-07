@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:55 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/07 16:57:50 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/07 17:11:35 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,18 @@ int     symbol_switch(t_info info, const char **fmt, va_list *ap, int *result)
     else if (temp == '%')
         return (print_char('%', info, result));
     else
+    {
+        if (info.is_blank == 1)
+        {
+            wc1(' ', result);
+            info.width--;
+        }
         while (--info.width > 0)
         {
             wc1(' ', result);
-            // info.width--;
-        }
+        }            
+    }
+
     return (1);
 }
 
@@ -95,7 +102,7 @@ int     format_print(const char **format, va_list *ap, int *result)
                 && !is_option(**format) && (**format))
     {
         if (**format == ' ')
-            wc1(**format, result);
+            temp.is_blank = 1;
         else
         {
             wc1(*((*format)++), result);
@@ -118,9 +125,9 @@ int     format_print(const char **format, va_list *ap, int *result)
 //     // char *s = "hello world, %5%";
 //     int ret_f = 0;
 //     int ret_o = 0;
-//     char *string = "%5.0\n";
-//     ret_f = ft_printf(string);
-//     ret_o = printf(string);
+//     char *string = "|% *.5|\n";
+//     ret_f = ft_printf(string, 5);
+//     ret_o = printf(string, 5);
 //     // ret_f = ft_printf("%5.0d*\n", 0);
 //     // ret_o = printf("%5.0d*\n", ft_numlen(0, 10));
 //     printf("return value of mine : %d\nreturn value of origin : %d\n", ret_f, ret_o);
