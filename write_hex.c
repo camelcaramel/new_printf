@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 09:49:07 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/08 11:48:06 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/08 12:22:24 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ int		print_integer_hex(long long n, t_info info, int radix, int *result)
 		info.precision--;
 		wc1('0', result);
 	}
-	if (print_zero_handler(n, info, result))
+	if (print_zero_handler(number, info, result))
 	{
 		if (radix == 15)
-			write_positive_integer_lower(n, radix + 1, result);
+			write_positive_integer_lower(number, radix + 1, result);
 		else
-			write_positive_integer(n, radix, result);
+			write_positive_integer(number, radix, result);
 	}
 	return (1);
 }
@@ -51,6 +51,6 @@ void	hex_width_handling(t_info *info, int len, int *result)
 		}
 		else
 			wc1(' ', result);
-		info->width--;
+		(info->width)--;
 	}
 }
