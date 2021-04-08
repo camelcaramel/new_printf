@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:26 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/08 11:45:39 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/08 11:57:36 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,10 +117,7 @@ int		preci_proc(const char **format, va_list *ap, t_info *temp)
 		if (**format == '-')
 			sign = -1;
 		while (is_digit(**format))
-		{
-			ret = ret * 10 + ((**format) - '0');
-			(*format)++;
-		}
+			ret = ret * 10 + ((*(*format)++) - '0');
 	}
 	return (return_preci(ret, sign, temp));
 }

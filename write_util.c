@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 17:35:18 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/08 11:45:20 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/08 11:52:09 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,5 @@ int		width_handling(t_info *info, int len, int *result)
 			wc1(' ', result);
 		info->width--;
 	}
+	return (1);
 }

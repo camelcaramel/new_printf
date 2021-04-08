@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:37 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/08 11:46:50 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/08 12:02:02 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,8 @@ int		print_pointer(unsigned long long n, t_info info, int radix, int *result)
 	}
 	write(1, &"0x", 2);
 	(*result) += 2;
-	while (info.precision - len + 2 > 0)
-	{
+	while ((info.precision--) - len + 2 > 0)
 		wc1('0', result);
-		info.precision--;
-	}
 	if (radix != 15)
 		write_positive_integer_lower(n, radix, result);
 	return (1);
