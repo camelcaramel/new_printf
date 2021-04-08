@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:55 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/08 10:44:45 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/08 10:55:27 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,13 +79,18 @@ int     symbol_switch_number(t_info info, const char **fmt, va_list *ap, int *re
 
 int     symbol_switch_other(t_info info, const char **fmt, va_list *ap, int *result)
 {
-    if (**fmt == 'p')
+    char    temp;
+
+    temp = **fmt;
+    if (is_option(*(*fmt - 1)) || (*(*fmt - 1)) == '%')
+        temp = *(*fmt - 1);
+    if (temp == 'p')
         return (print_pointer((long long)va_arg(*ap, int *), info, 16, result));
-    else if (**fmt == 'c')
+    else if (temp == 'c')
         return (print_char(va_arg(*ap, int), info, result));
-    else if (**fmt == 's')
+    else if (temp == 's')
         return (print_string(va_arg(*ap, char *), info, result));
-    else if (**fmt == '%')
+    else if (temp == '%')
         return (print_char('%', info, result));
     else
     {
@@ -123,3 +128,10 @@ int     format_print(const char **format, va_list *ap, int *result)
     temp.precision = preci_proc(format, ap, &temp);
     return (symbol_switch_number(temp, format, ap, result));
 }
+
+// int main(void)
+// {
+//     char *s = "hello world";
+//     ft_printf("hello world 1234 %d %x %s\n", 1234, 1234, s);
+//     return (0);
+// }
