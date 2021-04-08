@@ -6,20 +6,20 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:26 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/08 11:19:27 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/08 11:31:30 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int     flag_proc(const char **format)
+int		flag_proc(const char **format)
 {
-	int     ret;
-	int     is_minus;
+	int		ret;
+	int		is_minus;
 
 	ret = 1;
 	is_minus = 1;
-	while (**format == '0' || **format == '-' || **format == ' ') 
+	while (**format == '0' || **format == '-' || **format == ' ')
 	{
 		if (**format == '0')
 		{
@@ -27,16 +27,16 @@ int     flag_proc(const char **format)
 		}
 		else if (**format == '-')
 		{
-			is_minus =  0;
+			is_minus = 0;
 		}
 		(*format)++;
 	}
 	return (ret * is_minus);
 }
 
-int     width_proc(const char **format, va_list *ap, t_info *info)
+int		width_proc(const char **format, va_list *ap, t_info *info)
 {
-	int     ret;
+	int		ret;
 
 	ret = 0;
 	info->is_va = 0;
@@ -63,9 +63,9 @@ int     width_proc(const char **format, va_list *ap, t_info *info)
 	return (ret); 
 }
 
-int     preci_get_va(const char **format, va_list *ap, t_info *temp)
+int		preci_get_va(const char **format, va_list *ap, t_info *temp)
 {
-	int     ret;
+	int		ret;
 
 	ret = va_arg(*ap, int);
 	(*format)++;
@@ -81,7 +81,7 @@ int     preci_get_va(const char **format, va_list *ap, t_info *temp)
 	return (ret);
 }
 
-int     return_preci(int ret, int sign, t_info *info)
+int		return_preci(int ret, int sign, t_info *info)
 {
 	if (sign * ret < 0)
 	{
@@ -95,10 +95,10 @@ int     return_preci(int ret, int sign, t_info *info)
 	return (sign * ret);
 }
 
-int     preci_proc(const char **format, va_list *ap, t_info *temp)
+int		preci_proc(const char **format, va_list *ap, t_info *temp)
 {
-	int     ret;
-	int     sign;
+	int		ret;
+	int		sign;
 
 	ret = 0;
 	sign = 1;

@@ -6,16 +6,16 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 09:49:07 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/08 11:19:51 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/08 11:39:48 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int     print_integer_hex(long long n, t_info info, int radix, int *result)
+int		print_integer_hex(long long n, t_info info, int radix, int *result)
 {
-	int                 len;
-	unsigned int        number;
+	int					len;
+	unsigned int		number;
 
 	number = (unsigned int)n;
 	len = ft_numlen(number, radix);
@@ -36,9 +36,9 @@ int     print_integer_hex(long long n, t_info info, int radix, int *result)
 	return (1);
 }
 
-void    hex_width_handling(t_info *info, int len, int *result)
+void	hex_width_handling(t_info *info, int len, int *result)
 {
-		while (info->width - info->precision > 0 && info->width - len > 0)
+	while (info->width - info->precision > 0 && info->width - len > 0)
 	{
 		if (info->flag == 2 && info->is_dot != 1)
 			wc1('0', result);

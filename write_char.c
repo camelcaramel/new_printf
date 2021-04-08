@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 09:48:54 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/08 11:19:44 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/08 11:23:57 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	write_char(const char c, int *result)
 	wc1(c, result);
 }
 
-int     print_char(const char c, t_info info, int *result)
+int		print_char(const char c, t_info info, int *result)
 {
-	int         len;
+	int		len;
 
 	len = 1;
 	if (info.flag == 0)
@@ -30,7 +30,7 @@ int     print_char(const char c, t_info info, int *result)
 	{
 		if (info.flag == 2)
 			wc1('0', result);
-		else	
+		else
 			wc1(' ', result);
 		info.width--;
 	}
@@ -45,7 +45,7 @@ int     print_char(const char c, t_info info, int *result)
 
 int		print_leftize_char(const char c, t_info info, int *result)
 {
-	int         len;
+	int		len;
 
 	len = 1;
 	while (info.precision - len > 0)

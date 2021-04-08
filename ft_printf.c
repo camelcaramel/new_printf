@@ -6,16 +6,16 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:55 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/08 11:18:39 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/08 11:35:15 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int     ft_printf(const char *fmt, ...)
+int		ft_printf(const char *fmt, ...)
 {
-	va_list ap;
-	int     result;
+	va_list	ap;
+	int		result;
 
 	result = 0;
 	if (fmt == NULL)
@@ -35,7 +35,7 @@ int     print(const char **fmt, va_list *ap, int *result)
 	{
 		if (**fmt == '%')
 		{
-			if(*((*fmt)+1) == '%')
+			if (*((*fmt) + 1) == '%')
 			{
 				wc1(*((*fmt)++), result);
 				(*fmt)++;
@@ -53,9 +53,9 @@ int     print(const char **fmt, va_list *ap, int *result)
 	return (1);
 }
 
-int     symbol_switch_number(t_info info, const char **fmt, va_list *ap, int *result)
+int		symbol_switch_number(t_info info, const char **fmt, va_list *ap, int *result)
 {
-	char    temp;
+	char	temp;
 
 	while (**fmt == ' ')
 		(*fmt)++;
@@ -77,9 +77,9 @@ int     symbol_switch_number(t_info info, const char **fmt, va_list *ap, int *re
 	return (1);
 }
 
-int     symbol_switch_other(t_info info, const char **fmt, va_list *ap, int *result)
+int		symbol_switch_other(t_info info, const char **fmt, va_list *ap, int *result)
 {
-	char    temp;
+	char	temp;
 
 	temp = **fmt;
 	if (is_option(*(*fmt - 1)) || (*(*fmt - 1)) == '%')
@@ -101,14 +101,14 @@ int     symbol_switch_other(t_info info, const char **fmt, va_list *ap, int *res
 		while (--info.width > 0)
 		{
 			wc1(' ', result);
-		}            
+		}
 	}
 	return (1);
 }
 
-int     format_print(const char **format, va_list *ap, int *result)
+int		format_print(const char **format, va_list *ap, int *result)
 {
-	t_info temp;
+	t_info	temp;
 
 	while (!is_digit(**format) && !is_flag(**format) 
 				&& !is_option(**format) && (**format))
@@ -118,7 +118,7 @@ int     format_print(const char **format, va_list *ap, int *result)
 		else
 		{
 			wc1(*((*format)++), result);
-			break;
+			break ;
 		}
 		(*format)++;
 	}
