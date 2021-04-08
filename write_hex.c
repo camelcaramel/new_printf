@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 09:49:07 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/08 12:22:24 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/08 12:29:11 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int		print_integer_hex(long long n, t_info info, int radix, int *result)
 	len = ft_numlen(number, radix);
 	if (info.flag == 0)
 		return (print_leftize_integer(number, info, radix, result));
+	hex_width_handling(&info, len, result);
 	while (info.precision - len > 0)
 	{
 		info.precision--;
