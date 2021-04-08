@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 22:25:15 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/08 12:15:19 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/08 12:31:06 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void			write_positive_integer_lower(unsigned long long n,
 
 int				print_integer_hex(long long n, t_info info,
 									int radix, int *result);
-//
 void			hex_width_handling(t_info *info, int len, int *result);
 
 void			write_char(const char c, int *result);
@@ -81,7 +80,5 @@ int				ft_pointer_numlen(unsigned long long n, int radix);
 int				min(int a, int b);
 void			wc1(const char c, int *result);
 int				print_zero_handler(int n, t_info info, int *result);
-//
 int				width_handling(t_info *info, int len, int *result);
-
 #endif
