@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:55 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/08 10:55:27 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/08 11:14:42 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,10 +128,3 @@ int     format_print(const char **format, va_list *ap, int *result)
     temp.precision = preci_proc(format, ap, &temp);
     return (symbol_switch_number(temp, format, ap, result));
 }
-
-// int main(void)
-// {
-//     char *s = "hello world";
-//     ft_printf("hello world 1234 %d %x %s\n", 1234, 1234, s);
-//     return (0);
-// }

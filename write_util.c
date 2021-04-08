@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 17:35:18 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/08 10:38:18 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/08 11:14:29 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,21 @@ int		print_zero_handler(int n, t_info info, int *result)
         return (0);
     }
     return (1);
+}
+
+int		width_handling(t_info *info, int len, int *result)
+{
+	    while (info->width - info->precision > 0 && info->width - len > 0)
+    {
+        if (info->flag == 2)
+        {
+            if (info->is_dot == 1 && info->precision > 0)
+                wc1(' ', result);
+            else
+                wc1('0', result);
+        }
+		else	
+			wc1(' ', result);
+        info->width--;
+    }
 }

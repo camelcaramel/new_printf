@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:30 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/08 11:05:19 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/08 11:10:05 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,7 @@ int     print_integer(long long n, t_info info, int radix, int *result)
         info.width--;
     if (n < 0 && info.flag == 2 && !(info.is_dot == 1 && info.precision > 0))
         wc1('-', result);
-    while (info.width - info.precision > 0 && info.width - len > 0)
-    {
-        if (info.flag == 2)
-        {
-            if (info.is_dot == 1 && info.precision > 0)
-                wc1(' ', result);
-            else
-                wc1('0', result);
-        }
-		else	
-			wc1(' ', result);
-        info.width--;
-    }
+    width_handling(&info, len, result);
     if (n < 0 && (n *= -1) > 0 && !(info.flag == 2 
                     && !(info.is_dot == 1 && info.precision > 0)))
     {

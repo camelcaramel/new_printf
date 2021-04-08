@@ -5,18 +5,6 @@ TARGET=libftprintf.a
 MLIB=ar rc
 CFLAGS= -Wall -Wextra -Werror
 CC=gcc
-TEST_CC=gcc
-TEST_TARGET=a.out
-
-# testre : test_clean test
-
-# test : $(TEST_TARGET)
-
-# test_clean : 
-# 	rm -f $(TEST_TARGET)
-
-# $(TEST_TARGET) : 
-# 	$(TEST_CC) $(SRCS)
 
 all : $(TARGET)
 
