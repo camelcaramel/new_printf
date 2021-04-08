@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 09:49:07 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/08 11:39:48 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/08 11:48:06 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	hex_width_handling(t_info *info, int len, int *result)
 			else
 				wc1(' ', result);
 		}
-		else	
+		else
 			wc1(' ', result);
 		info->width--;
 	}

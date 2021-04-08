@@ -6,13 +6,11 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:33 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/08 11:20:19 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/08 11:49:44 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-
 
 void	write_string(const char *s, int len, int *result)
 {
@@ -38,9 +36,9 @@ void	write_string(const char *s, int len, int *result)
 	}
 }
 
-int     print_string(char *s, t_info info, int *result)
+int		print_string(char *s, t_info info, int *result)
 {
-	int         len;
+	int		len;
 
 	if (s == NULL)
 		s = "(null)";
@@ -50,7 +48,7 @@ int     print_string(char *s, t_info info, int *result)
 		width_print(info.width, 0, result, info.flag);
 		return (1);
 	}
-	if (info.is_dot != 1 || info.precision  < 0)
+	if (info.is_dot != 1 || info.precision < 0)
 		info.precision = len;
 	if (info.flag == 0)
 	{
@@ -69,7 +67,7 @@ void	width_print(int width, int len, int *result, int flag)
 	while (width - len > 0)
 	{
 		if (flag == 2)
-			wc1('0', result);	
+			wc1('0', result);
 		else
 			wc1(' ', result);
 		width--;
@@ -78,7 +76,7 @@ void	width_print(int width, int len, int *result, int flag)
 
 int		print_leftize_string(const char *s, t_info info, int *result)
 {
-	int         len;
+	int		len;
 
 	len = ft_strlen(s);
 	if (info.precision < 0)

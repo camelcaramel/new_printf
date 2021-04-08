@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 17:35:18 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/08 11:21:58 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/08 11:45:20 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		print_zero_handler(int n, t_info info, int *result)
 {
 	if (n == 0 && info.print_zero == 0)
 	{
-		if (info.precision == 0  && info.width == 0)
+		if (info.precision == 0 && info.width == 0)
 			info.width = 0;
 		else if (info.precision == 0 && info.width != 0)
 			wc1(' ', result);
@@ -42,7 +42,7 @@ int		print_zero_handler(int n, t_info info, int *result)
 
 int		width_handling(t_info *info, int len, int *result)
 {
-		while (info->width - info->precision > 0 && info->width - len > 0)
+	while (info->width - info->precision > 0 && info->width - len > 0)
 	{
 		if (info->flag == 2)
 		{
@@ -51,7 +51,7 @@ int		width_handling(t_info *info, int len, int *result)
 			else
 				wc1('0', result);
 		}
-		else	
+		else
 			wc1(' ', result);
 		info->width--;
 	}

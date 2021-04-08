@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:55 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/08 11:35:15 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/08 11:47:56 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		ft_printf(const char *fmt, ...)
 	return (result);
 }
 
-int     print(const char **fmt, va_list *ap, int *result)
+int		print(const char **fmt, va_list *ap, int *result)
 {
 	while (**fmt)
 	{
@@ -53,7 +53,8 @@ int     print(const char **fmt, va_list *ap, int *result)
 	return (1);
 }
 
-int		symbol_switch_number(t_info info, const char **fmt, va_list *ap, int *result)
+int		symbol_switch_number(t_info info, const char **fmt,
+								va_list *ap, int *result)
 {
 	char	temp;
 
@@ -77,7 +78,8 @@ int		symbol_switch_number(t_info info, const char **fmt, va_list *ap, int *resul
 	return (1);
 }
 
-int		symbol_switch_other(t_info info, const char **fmt, va_list *ap, int *result)
+int		symbol_switch_other(t_info info, const char **fmt,
+								va_list *ap, int *result)
 {
 	char	temp;
 
@@ -110,7 +112,7 @@ int		format_print(const char **format, va_list *ap, int *result)
 {
 	t_info	temp;
 
-	while (!is_digit(**format) && !is_flag(**format) 
+	while (!is_digit(**format) && !is_flag(**format)
 				&& !is_option(**format) && (**format))
 	{
 		if (**format == ' ')
