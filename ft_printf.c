@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:55 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/08 10:43:19 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/08 10:44:45 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ int     symbol_switch_other(t_info info, const char **fmt, va_list *ap, int *res
             wc1(' ', result);
         }            
     }
+    return (1);
 }
 
 int     format_print(const char **format, va_list *ap, int *result)
