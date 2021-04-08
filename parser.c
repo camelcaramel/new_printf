@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:26 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/07 16:59:38 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/08 09:47:28 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,38 @@ int     width_proc(const char **format, va_list *ap, t_info *info)
     return (ret); 
 }
 
+int     preci_get_va(const char **format, va_list *ap, t_info *temp)
+{
+    int     ret;
+
+    ret = va_arg(*ap, int);
+    (*format)++;
+    if (temp->is_va == 1 && temp->flag == 2 && ret >= 0)
+        temp->flag = 1;
+    if (ret < 0)
+    {
+        temp->print_zero = 1;
+        return (ret);
+    }
+    if (ret == 0)
+        temp->print_zero = 0;
+    return (ret);
+}
+
+int     return_preci(int ret, int sign, t_info *info)
+{
+    if (sign * ret < 0)
+    {
+        info->width = ret;
+        info->flag = 0;
+        info->print_zero = 0;
+        return (0);
+    }
+    if (ret > 0)
+        info->print_zero = 1;
+    return (sign * ret);
+}
+
 int     preci_proc(const char **format, va_list *ap, t_info *temp)
 {
     int     ret;
@@ -81,38 +113,14 @@ int     preci_proc(const char **format, va_list *ap, t_info *temp)
         while (**format == ' ')
             (*format)++;
         if (**format == '*')
-        {
-            ret = va_arg(*ap, int);
-            (*format)++;
-            if (temp->is_va == 1 && temp->flag == 2 && ret >= 0)
-                temp->flag = 1;
-            if (ret < 0)
-            {
-                temp->print_zero = 1;
-                // chagne point
-                return (ret);
-            }
-            if (ret == 0)
-                temp->print_zero = 0;
-            return (ret);
-        }
+            return (preci_get_va(format, ap, temp));
         if (**format == '-')
             sign = -1;
         while (is_digit(**format))
         {
-            ret *= 10;
-            ret += (**format) - '0';
+            ret = ret * 10 + ((**format) - '0');
             (*format)++;
         }
     }
-    if (sign * ret < 0)
-    {
-        temp->width = ret;
-        temp->flag = 0;
-        temp->print_zero = 0;
-        return (0);
-    }
-    if (ret > 0)
-        temp->print_zero = 1;
-    return (sign * ret);
+    return (return_preci(ret, sign, temp));
 }

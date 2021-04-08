@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:22 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/03 21:47:23 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/08 09:48:33 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int     is_option(const char c)
 {
-    return (c == 'd' || c == 's' || c == 'c' || c == 'i' || c == 'p' || c == 'x' || c == 'X' || c == 'u');
+    return (c == 'd' || c == 's' || c == 'c' || c == 'i'
+                    || c == 'p' || c == 'x' || c == 'X' || c == 'u');
 }
 
 int     is_digit(const char c)

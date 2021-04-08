@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 17:35:18 by donghwik          #+#    #+#             */
-/*   Updated: 2021/03/29 19:52:02 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/08 10:38:18 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,26 @@ void	wc1(const char c, int *result)
 {
 	(*result)++;
 	write(1, &c, 1);
+}
+
+int		min(int a, int b)
+{
+	if (a > b)
+		return (b);
+	return (a);
+}
+
+int		print_zero_handler(int n, t_info info, int *result)
+{
+    if (n == 0 && info.print_zero == 0)
+    {
+        if (info.precision == 0  && info.width == 0)
+            info.width = 0;
+        else if (info.precision == 0 && info.width != 0)
+            wc1(' ', result);
+        else if (info.flag <= 1 || info.width == 0)
+            wc1('0', result);
+        return (0);
+    }
+    return (1);
 }

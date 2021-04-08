@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:55 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/07 17:14:49 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/08 09:37:56 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int     print(const char **fmt, va_list *ap, int *result)
     return (1);
 }
 
-int     symbol_switch(t_info info, const char **fmt, va_list *ap, int *result)
+int     symbol_switch_number(t_info info, const char **fmt, va_list *ap, int *result)
 {
     char    temp;
 
@@ -72,13 +72,20 @@ int     symbol_switch(t_info info, const char **fmt, va_list *ap, int *result)
         return (print_integer_hex(va_arg(*ap, int), info, 15, result));
     else if (temp == 'X')
         return (print_integer_hex(va_arg(*ap, int), info, 16, result));
-    else if (temp == 'p')
+    else
+        return (symbol_switch_other(info, fmt, ap, result));
+    return (1);
+}
+
+int     symbol_switch_other(t_info info, const char **fmt, va_list *ap, int *result)
+{
+    if (**fmt == 'p')
         return (print_pointer((long long)va_arg(*ap, int *), info, 16, result));
-    else if (temp == 'c')
+    else if (**fmt == 'c')
         return (print_char(va_arg(*ap, int), info, result));
-    else if (temp == 's')
+    else if (**fmt == 's')
         return (print_string(va_arg(*ap, char *), info, result));
-    else if (temp == '%')
+    else if (**fmt == '%')
         return (print_char('%', info, result));
     else
     {
@@ -91,8 +98,6 @@ int     symbol_switch(t_info info, const char **fmt, va_list *ap, int *result)
             wc1(' ', result);
         }            
     }
-
-    return (1);
 }
 
 int     format_print(const char **format, va_list *ap, int *result)
@@ -117,20 +122,3 @@ int     format_print(const char **format, va_list *ap, int *result)
     temp.precision = preci_proc(format, ap, &temp);
     return (symbol_switch(temp, format, ap, result));
 }
-
-
-// int main(void)
-// {
-//     //int n = 123;
-//     // int k = 0;
-//     // char *s = "hello world, %5%";
-//     int ret_f = 0;
-//     int ret_o = 0;
-//     char *string = "|% *.5|\n";
-//     ret_f = ft_printf(string, 5);
-//     ret_o = printf(string, 5);
-//     // ret_f = ft_printf("%5.0d*\n", 0);
-//     // ret_o = printf("%5.0d*\n", ft_numlen(0, 10));
-//     printf("return value of mine : %d\nreturn value of origin : %d\n", ret_f, ret_o);
-//     return (0);
-// }

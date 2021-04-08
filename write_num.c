@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:30 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/03 17:49:01 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/08 10:39:43 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ int     print_integer(long long n, t_info info, int radix, int *result)
 			wc1(' ', result);
         info.width--;
     }
-    if (n < 0 && (n *= -1) > 0 && !(info.flag == 2 && !(info.is_dot == 1 && info.precision > 0)))
+    if (n < 0 && (n *= -1) > 0 && !(info.flag == 2 
+                    && !(info.is_dot == 1 && info.precision > 0)))
     {
         wc1('-', result);
     }
@@ -69,16 +70,7 @@ int     print_integer(long long n, t_info info, int radix, int *result)
         info.precision--;
         wc1('0', result);
     }
-    if (n == 0 && info.print_zero == 0)
-    {
-        if (info.precision == 0  && info.width == 0)
-            info.width = 0;
-        else if (info.precision == 0 && info.width != 0)
-            wc1(' ', result);
-        else if (info.flag <= 1 || info.width == 0)
-            wc1('0', result);
-    }
-    else
+    if (print_zero_handler(n, info, result))
         write_positive_integer(n, radix, result);
     return (1);
 }
@@ -98,16 +90,7 @@ int		print_leftize_integer(long long n, t_info info, int radix, int *result)
 		info.precision--;
 		info.width--;
 	}
-    if (n == 0 && info.print_zero == 0)
-    {
-        if (info.precision ==0  && info.width == 0)
-            info.width = 0;
-        else if (info.precision == 0 && info.width != 0)
-            wc1(' ', result);
-        else if (info.flag == 0 || info.width == 0)
-            wc1('0', result);
-    }
-    else if (radix == 15)
+    if (print_zero_handler(n, info, result) && radix == 15)
         write_positive_integer_lower(n, radix + 1, result);
     else
         write_positive_integer(n, radix, result);
