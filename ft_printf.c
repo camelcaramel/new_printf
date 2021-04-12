@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:55 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/12 20:07:20 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/12 20:09:24 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,7 @@ int		format_print(const char **format, va_list *ap, int *result)
 	temp.flag = flag_proc(format);
 	temp.width = width_proc(format, ap, &temp);
 	temp.precision = preci_proc(format, ap, &temp);
-	if (temp.is_dot == 1)
-		temp.width = 0;
+	if (temp.is_dot == 1 && temp.flag == 2)
+		temp.flag = 1;
 	return (symbol_switch_number(temp, format, ap, result));
 }
