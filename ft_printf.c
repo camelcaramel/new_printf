@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:55 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/12 20:58:44 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/12 21:02:05 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,10 @@ int		symbol_switch_other(t_info info, const char **fmt,
 	else if (temp == '%')
 	{
 		if (info.is_dot == 1 && info.flag == 2)
+		{
 			info.flag = 1;
+			info.precision = 0;
+		}
 		return (print_char('%', info, result));
 	}
 	else
