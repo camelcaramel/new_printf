@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:55 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/12 22:10:29 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/12 22:12:19 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,12 +138,3 @@ int		format_print(const char **format, va_list *ap, int *result)
 	}
 	return (symbol_switch_number(temp, format, ap, result));
 }
-
-// #include <stdio.h>
-
-// int main(void)
-// {
-// 	ft_printf("-->|%4.0%|<--\n");
-// 	printf("-->|%4.0%|<--\n");
-// 	return 0;
-// }
