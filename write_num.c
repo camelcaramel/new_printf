@@ -39,7 +39,9 @@ int		print_integer(long long n, t_info info, int radix, int *result)
 {
 	int		len;
 	int		is_write_sign;
-
+// flag = 2
+// width = 4
+// precision = 0
 	len = ft_numlen(n, radix);
 	is_write_sign = 0;
 	if (info.flag == 0)
@@ -53,7 +55,7 @@ int		print_integer(long long n, t_info info, int radix, int *result)
 					&& !(info.is_dot == 1 && info.precision > 0)))
 	{
 		wc1('-', result);
-	}
+	}// 0 플래그랑 점이 존재하면 프리시전이 존재하면 0플래그가 없어진다.
 	while (info.precision - len > 0)
 	{
 		info.precision--;
