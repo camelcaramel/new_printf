@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 17:35:18 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/12 19:59:44 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/12 21:35:16 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@ void	wc1(const char c, int *result)
 {
 	(*result)++;
 	write(1, &c, 1);
+}
+
+int		is_modified(t_info info)
+{
+	return ((info.is_va == 1 && info.flag == 2 && info.precision >= 0) ||
+				(info.flag == 2 && info.is_dot == 1 && info.precision == 0));
 }
 
 int		min(int a, int b)
