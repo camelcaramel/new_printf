@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:26 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/12 20:14:47 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/12 20:17:41 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,12 @@ int		preci_get_va(const char **format, va_list *ap, t_info *temp)
 	if (ret < 0)
 	{
 		temp->print_zero = 1;
-		if (temp->flag == 2)
-			temp->flag = 1;
 		return (ret);
 	}
 	if (ret == 0)
 		temp->print_zero = 0;
+	if (temp->flag == 2)
+		temp->flag = 1;
 	return (ret);
 }
 
@@ -90,12 +90,12 @@ int		return_preci(int ret, int sign, t_info *info)
 		info->width = ret;
 		info->flag = 0;
 		info->print_zero = 0;
-		if (info->flag == 2)
-			info->flag = 1;
 		return (0);
 	}
 	if (ret > 0)
 		info->print_zero = 1;
+	if (info->flag == 2)
+		info->flag = 1;	
 	return (sign * ret);
 }
 
