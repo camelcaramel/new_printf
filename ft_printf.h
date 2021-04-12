@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 22:25:15 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/12 20:18:58 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/12 21:25:37 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct	s_info
 	int			is_va;
 	int			is_dot;
 	int			is_blank;
-	int			is_precision_valid;
+	int			is_flag_modified;
 }				t_info;
 
 int				ft_printf(const char *fmts, ...);

@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:26 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/12 20:48:55 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/12 21:26:43 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,10 @@ int		preci_get_va(const char **format, va_list *ap, t_info *temp)
 	(*format)++;
 	temp->print_zero = 1;
 	if (temp->is_va == 1 && temp->flag == 2 && ret >= 0)
+	{
+		temp->is_flag_modified = 1;
 		temp->flag = 1;
+	}
 	if (ret < 0)
 	{
 		temp->print_zero = 1;
@@ -79,7 +82,6 @@ int		preci_get_va(const char **format, va_list *ap, t_info *temp)
 	}
 	if (ret == 0)
 		temp->print_zero = 0;
-	temp->is_precision_valid = 1;
 	return (ret);
 }
 
@@ -94,7 +96,6 @@ int		return_preci(int ret, int sign, t_info *info)
 	}
 	if (ret > 0)
 		info->print_zero = 1;
-	info->is_precision_valid = 1;
 	return (sign * ret);
 }
 
