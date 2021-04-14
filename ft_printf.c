@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:30:55 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/14 14:10:10 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/14 14:12:43 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,6 @@ int		symbol_switch_number(t_info info, const char **fmt,
 int		symbol_switch_other(t_info info, const char temp,
 								va_list *ap, int *result)
 {
-	// char	temp;
-
-	// temp = **fmt;
-	// if (is_option(*(*fmt - 1)) || (*(*fmt - 1)) == '%')
-	// 	temp = *(*fmt - 1);
 	if (temp == 'p')
 		return (print_pointer((long long)va_arg(*ap, int *), info, 16, result));
 	else if (temp == 'c')
