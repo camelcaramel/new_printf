@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 22:25:15 by donghwik          #+#    #+#             */
-/*   Updated: 2021/04/12 21:45:30 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/04/14 14:10:25 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int				print(const char **fmt, va_list *ap, int *result);
 int				format_print(const char **fmt, va_list *ap, int *result);
 int				symbol_switch_number(t_info info, const char **fmt,
 						va_list *ap, int *result);
-int				symbol_switch_other(t_info info, const char **fmt,
+int				symbol_switch_other(t_info info, const char temp,
 										va_list *ap, int *result);
 
 int				flag_proc(const char **format);
